@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+	<style>
+		body {
+			display: flex;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<script type="text/javascript">
+		let cnv = document.createElement('canvas'),
+			$ = cnv.getContext("2d");
+
+		width = cnv.width = window.innerWidth;
+		height = cnv.height = window.innerHeight;
+
+		document.body.appendChild(cnv);
+
+		let angle = (x, y, w, h, a, c) => {
+			let dx = x + w / 2,
+				dy = y + h / 2;
+
+			if (a) {
+				a = a * (Math.PI / 180);
+				$.save();
+				$.translate(dx, dy);
+				$.rotate(a);
+				$.translate(-dx, -dy);
+			}
+
+			$.fillStyle = c;
+			$.fillRect(x, y, w, h);
+
+			if (a) {
+				$.restore();
+			}
+		}
+
+		let x = 30,
+			y = 30,
+			a = 0,
+			speed = 1;
+
+		let ag1 = {
+			x: width / 2 - 100,
+			y: height / 2 - 100,
+			w: 200,
+			h: 200,
+		}
+		let ag2 = {
+			x: width / 2 - 50,
+			y: height / 2 - 50,
+			w: 100,
+			h: 100,
+		}
+		let ag3 = {
+			x: width / 2 - 25,
+			y: height / 2 - 25,
+			w: 50,
+			h: 50,
+		}
+
+		let game = () => {
+			$.clearRect(0, 0, width, height);
+
+			$.fillStyle = 'black';
+			$.fillRect(0, 0, width, height);
+
+			angle(ag1.x, ag1.y, ag1.w, ag1.h, -a, 'green');
+
+			angle(ag2.x, ag2.y, ag2.w, ag2.h, a, 'white');
+
+			angle(ag3.x, ag3.y, ag3.w, ag3.h, -a, 'red');
+
+
+
+
+
+			cnv.onclick = e => {
+				if (e.pageX > ag1.x && e.pageX < ag1.x + ag1.w && e.pageY > ag1.y && e.pageY < ag1.y + ag1.h) {
+					if (speed == 1) {
+						speed = -1;
+					} else {
+						speed = 1
+					};
+				}
+			};
+
+			a += speed;
+
+			requestAnimationFrame(game)
+		}
+		game();
+	</script>
+</body>
+
+</html>

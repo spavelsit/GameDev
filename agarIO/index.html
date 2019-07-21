@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,user-scalable=no" />
+	<title>11</title>
+
+	<style>
+		body {
+			background: url('img/bg.jpg') repeat;
+		}
+		.gameOver {
+			width: 400px;
+			height: 250px;
+			background-color: rgba(0,0,0, .9);
+			z-index: 10000;
+			position: absolute;
+			color: #ffffff;
+			text-align: center;
+			top: 50%; margin-top: -125px;
+			left: 50%; margin-left: -200px;
+			font-size: 32px;
+			display: none;
+		}
+		#reset {
+			border: 2px solid;
+			color: #ffffff;
+			background: none;
+			padding: 14px;
+			font-size: 20px;
+			cursor: pointer;
+			transition: .3s linear;
+		}
+		#reset:hover {
+			color: green;
+		}
+		.score {
+			z-index: 10000;
+			position: absolute;
+			font-size: 20px;
+			color: #ffffff;
+			top: 10px;
+			left: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<p class="score"><strong>Ваши очки:</strong> <span id="score">0</span></p>
+
+	<div class="gameOver" id="gameOver">
+		<h2>Game Over!</h2>
+		<button id="reset">Начать заного</button>
+	</div>
+
+	<script type="text/javascript" src="js/pointjs_0.2.0.2.js"></script>
+	<script type="text/javascript" src="js/obj.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Game</title>
+	<link rel="stylesheet" href="assets/css/base.css">
+</head>
+
+<body>
+	<div class="screen screen-start show" id="hidden">
+		<div class="panel">
+			<h1>The Battle of Heroes</h1>
+			<div id="contentID"></div>
+		</div>
+	</div>
+
+	<div class="screen screen-game" id="bg">
+		<div class="game-panel game-panel-user">
+			<div class="user-info" id="login">Username</div>
+			<div class="panel-xp">
+				<div id="hp" class="score-value">
+					<span id="hpStat">100</span>
+				</div>
+			</div>
+			<div class="panel-mp">
+				<div id="mp" class="score-value">
+					<span id="mpStat">100</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="game-panel game-panel-scores">
+			<div class="timer">Time: <span id="time">00:00</span></div>
+			<div class="kills">Killed: <span id="score">0</span></div>
+		</div>
+
+		<div class="game-panel game-panel-skills">
+			<img id="test" src="assets/img/skill-sword.png" alt="sword">
+		</div>
+	</div>
+	<script src="assets/js/keys.js"></script>
+	<script src="assets/js/engine.js"></script>
+	<script src="assets/js/graph.js"></script>
+	<script src="assets/js/obj.js"></script>
+	<script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
